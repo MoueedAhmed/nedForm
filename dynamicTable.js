@@ -13,7 +13,7 @@ function loadValues(tableId){
         trArr.push(tdArr);
     });
     console.log(trArr);
-    }
+}
 
 function deleteRow(tableId) {
     try {

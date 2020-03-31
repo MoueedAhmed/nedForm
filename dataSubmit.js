@@ -1,7 +1,23 @@
+function loadValuesFromTable(tableId){
+    var trArr = [];
+    var mainTable = $('#'+tableId);
+    var tr = mainTable.find('tbody tr');
+    tr.each(function(){
+        var tdArr=[];
+        $(this).find('td').each(function(){
+
+            var values=$(this).find(':text').val();
+            if (values!=undefined)
+                tdArr.push(values);
+        });
+        trArr.push(tdArr);
+    });
+    return trArr;
+}
+
 $( document ).ready(function() {
 
-	// SUBMIT FORM
-    $("#customerForm").submit(function(event) {
+    $("#submit").click(function () {
 		// Prevent the form from submitting via the browser.
 		event.preventDefault();
 		ajaxPost();
@@ -10,15 +26,26 @@ $( document ).ready(function() {
 
     function ajaxPost(){
 
-        var table1 = $('#table1');
-        var tr = table1.find('tbody tr');
-        alert(tr.length);
+		var fullName = $("#fullName").val();
+		var department = $("#department").val();
+		var rollNo = $("#rollNo").val();
+		var year = $("#year").val();
+		var date = $("#date").val();
+		var table1 = loadValuesFromTable("table1");
+		var table2 = loadValuesFromTable("table2");
 
     	// PREPARE FORM DATA
     	var formData = {
-    		firstname : $("#firstname").val(),
-    		lastname :  $("#lastname").val()
-    	}
+			"fullName":fullName,
+			"department":department,
+			"rollNo":rollNo,
+			"year":year,
+			"date":date,
+			"table1":table1,
+			"table2":table2
+		};
+		
+		console.log(formData);
 
     	// DO POST
 //    	$.ajax({
@@ -53,4 +80,4 @@ $( document ).ready(function() {
 //    	$("#firstname").val("");
 //    	$("#lastname").val("");
 //    }
-})
+});
