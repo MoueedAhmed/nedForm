@@ -76,19 +76,19 @@ $( document ).ready(function() {
 		//get request
 		// $.ajax({
 		// 	url: "http://localhost:8080/getUserDetails",
-		// 	headers: {"name": "Kashif"}
+		// 	headers: {"rollNo": "Kashif"}
 		// }).then(function(data) {
 		//    console.log(data);
 		// });
 
-    	//DO POST
+    //DO POST
    	$.ajax({
 			type : "POST",
 			contentType : "application/json",
 			url : "http://localhost:8080/createUser",
 			data : JSON.stringify(formData),
 			success : function(result) {
-				$("body").html("Data has been submitted!");
+				$("body").html("<h1 align='center'>Data has been submitted!</h1>");
 				console.log(result);
 			},
 			error : function(e) {
