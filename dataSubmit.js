@@ -1,16 +1,25 @@
+function guidGenerator() {
+    var S4 = function() {
+       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+    };
+    return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
+}
+
 function loadValuesFromTable(tableId){
     var trArr = [];
     var mainTable = $('#'+tableId);
     var tr = mainTable.find('tbody tr');
     tr.each(function(){
-        var tdArr=[];
+		var tdObj={};
+		var i = 1;
         $(this).find('td').each(function(){
-
             var values=$(this).find(':text').val();
-            if (values!=undefined)
-                tdArr.push(values);
+            if (values!=undefined){
+				tdObj[i] = values;
+				i++;
+			}	
         });
-        trArr.push(tdArr);
+        trArr.push(tdObj);
     });
     return trArr;
 }
@@ -47,37 +56,44 @@ $( document ).ready(function() {
 		
 		console.log(formData);
 
-    	// DO POST
-//    	$.ajax({
-//			type : "POST",
-//			contentType : "application/json",
-//			url : window.location + "api/customer/save",
-//			data : JSON.stringify(formData),
-//			dataType : 'json',
-//			success : function(result) {
-//				if(result.status == "Done"){
-//					$("#postResultDiv").html("<p style='background-color:#7FA7B0; color:white; padding:20px 20px 20px 20px'>" +
-//												"Post Successfully! <br>" +
-//												"---> Customer's Info: FirstName = " +
-//												result.data.firstname + " ,LastName = " + result.data.lastname + "</p>");
-//				}else{
-//					$("#postResultDiv").html("<strong>Error</strong>");
-//				}
-//				console.log(result);
-//			},
-//			error : function(e) {
-//				alert("Error!")
-//				console.log("ERROR: ", e);
-//			}
-//		});
+		// var formDataPost = {
+		// 	"name":"Murtaza",
+		// 	"age":"22",
+		// 	"location":"Karachi",
+		// 	"mapArrayList":[
+		// 			{
+		// 				"key":"value"
+		// 			}
+		// 		]
+		// }
+
+
+		//get request
+		// $.ajax({
+		// 	url: "http://localhost:8080/getUserDetails",
+		// 	headers: {"name": "Kashif"}
+		// }).then(function(data) {
+		//    console.log(data);
+		// });
+
+    	//DO POST
+   	$.ajax({
+			type : "POST",
+			contentType : "application/json",
+			url : "http://localhost:8080/createUser",
+			data : JSON.stringify(formData),
+			success : function(result) {
+				$("body").html("Data has been submitted!");
+				console.log(result);
+			},
+			error : function(e) {
+				alert("Error!")
+				console.log("ERROR: ", e);
+			}
+		});
 //
 //    	// Reset FormData after Posting
 //    	resetData();
 
     }
-
-//    function resetData(){
-//    	$("#firstname").val("");
-//    	$("#lastname").val("");
-//    }
 });
