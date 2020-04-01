@@ -17,8 +17,10 @@
 
 <div class="container">
 
+    <h2 align="center">NED University of Engineering and Technology</h2>
+    <h3 align="center">NED University Student Activity and Mobility Data 2019-2020</h3>
     <form  id="customerForm">
-        <h3>BASIC INFORMATION</h3>
+        <h4>BASIC INFORMATION</h4>
         <div class="form-group">
             <label for="fullName">Full Name</label>
             <input type="text" class="form-control" id="fullName">
@@ -43,11 +45,12 @@
         <ul>
             <li>Please note that this data will be stored in University Records, and will be used for Annual Reports, Nominations of Awards etc.</li>
             <li>It is strongly advised that it is filled diligently and carefully. Evidence or supporting documents if needed will be requested later.</li>
-            <li>Last Date of Submission: 1630 hrs. on Friday, 3rd of April 2020.</li>
+            <li>Last date of submission is Friday, 10th April 2020.</li>
         </ul>
-        <h5 style="color:red;text-decoration: underline;">DATA TO BE FILLED BETWEEN  1ST JULY 2019 TILL 30TH MARCH 2020 UNLESS SPECIFIED OTHERWISE</h5>
-        <h5>127 Participation in Curricular, Co-Curricular and Sports Events and Competitions <font color="red">(other than NED University)</font></h5>
+        <h5 style="color:red;text-decoration: underline;">DATA TO BE FILLED BETWEEN  1ST JULY 2019 TILL 30TH MARCH 2020</h5>
+        <h5>A. Participation in Curricular, Co-Curricular and Sports Events and Competitions <font color="red">(other than NED University)</font></h5>
 
+        <div class="table-responsive">
         <table class="table table-bordered table-hover" id="table1">
             <thead>
             <tr >
@@ -55,7 +58,7 @@
                 <th class="text-center">Competition Title</th>
                 <th class="text-center">Event Participated in (eg: Circuit Design etc.)</th>
                 <th class="text-center">Organizing Body or University</th>
-                <th class="text-center">Country</th>
+                <th class="text-center">&nbsp&nbsp&nbspCountry&nbsp&nbsp&nbsp</th>
                 <th class="text-center">Names of all team Members for example (Ms. Tania Kareem, Automotive Engineering Mr. Bahram Honory, Chemical Engineering etc.)</th>
                 <th class="text-center">Event Date (MMM-YYYY) (eg. Aug-2019)</th>
                 <th class="text-center">Award/Position Won</th>
@@ -64,7 +67,7 @@
             <tbody>
             <tr>
                 <td><input type='checkbox' name='chk' disabled/></td>
-                <td><input type="text" class="form-control"/></td>
+                <td><input type="text" class="form-control" required/></td>
                 <td><input type="text" class="form-control"/></td>
                 <td><input type="text" class="form-control"/></td>
                 <td><input type="text" class="form-control"/></td>
@@ -74,18 +77,20 @@
             </tr>
             </tbody>
         </table>
+        </div>
         <input type="button" id="add-row" value="Add Row"> <input type="button" id="del-row" value="Delete Row"><br><br>
 
-        <h5>123 International Student Mobility and Exchange</h5>
+        <h5>B. International Student Mobility and Exchange</h5>
 
+        <div class="table-responsive">
         <table class="table table-bordered table-hover" id="table2">
             <thead>
             <tr >
                 <th>Select</th>
                 <th class="text-center">University visited</th>
                 <th class="text-center">Programme attended</th>
-                <th class="text-center">City</th>
-                <th class="text-center">Country</th>
+                <th class="text-center">&nbsp&nbsp&nbsp&nbspCity&nbsp&nbsp&nbsp&nbsp</th>
+                <th class="text-center">&nbsp&nbsp&nbspCountry&nbsp&nbsp&nbsp</th>
                 <th class="text-center">Duration of stay</th>
                 <th class="text-center">Starting Date (MMM-YYYY) eg. Aug-2019)</th>
             </tr>
@@ -102,6 +107,7 @@
             </tr>
             </tbody>
         </table>
+    </div>
         <input type="button" id="add-row-t2" value="Add Row"> <input type="button" id="del-row-t2" value="Delete Row"><br><br>
 
         <button type="submit" class="btn btn-primary" id="submit">Submit</button>

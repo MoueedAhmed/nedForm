@@ -38,6 +38,11 @@ $( document ).ready(function() {
 		var fullName = $("#fullName").val();
 		var department = $("#department").val();
 		var rollNo = $("#rollNo").val();
+		if(rollNo.length<3){
+			
+			alert("Enter Roll Number!");
+			return;
+		}
 		var year = $("#year").val();
 		var date = $("#date").val();
 		var table1 = loadValuesFromTable("table1");
@@ -87,7 +92,7 @@ $( document ).ready(function() {
 				console.log(result);
 			},
 			error : function(e) {
-				alert("Error!")
+				alert("Something Wrong Kindly Submit again!");
 				console.log("ERROR: ", e);
 			}
 		});
